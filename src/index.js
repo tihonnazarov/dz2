@@ -1,12 +1,13 @@
+// index.js
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import store from './Redux/store'; // Импортируйте ваш Redux Store
-import Calculator from './App'; // Импортируйте компонент Calculator
+import store from './Redux/store'; // Импортируйте созданный Redux Store
+import UsersListPage from './pages/UsersListPage'; // Импортируйте компонент UsersListPage
 
 ReactDOM.render(
     <Provider store={store}>
-        <Calculator />
+        <UsersListPage />
     </Provider>,
     document.getElementById('root')
 );

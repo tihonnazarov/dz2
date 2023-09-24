@@ -1,30 +1,39 @@
+import {
+    FETCH_USERS_REQUEST,
+    FETCH_USERS_SUCCESS,
+    FETCH_USERS_FAILURE,
+} from './actions';
+
 const initialState = {
-    firstNumber: '',
-    secondNumber: '',
-    result: null,
+    users: [],
+    loading: false,
+    error: null,
 };
 
-const calculatorReducer = (state = initialState, action) => {
+const usersReducer = (state = initialState, action) => {
     switch (action.type) {
-        case 'SET_FIRST_NUMBER':
+        case FETCH_USERS_REQUEST:
             return {
                 ...state,
-                firstNumber: action.payload,
+                loading: true,
             };
-        case 'SET_SECOND_NUMBER':
+        case FETCH_USERS_SUCCESS:
             return {
                 ...state,
-                secondNumber: action.payload,
+                loading: false,
+                users: action.payload,
             };
-        case 'SET_RESULT':
+        case FETCH_USERS_FAILURE:
             return {
                 ...state,
-                result: action.payload,
+                loading: false,
+                error: action.payload,
             };
         default:
             return state;
     }
 };
 
-export default calculatorReducer;
+export default usersReducer;
+
 
